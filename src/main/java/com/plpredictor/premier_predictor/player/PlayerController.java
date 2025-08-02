@@ -20,20 +20,20 @@ public class PlayerController {
 
     @GetMapping
     public List<Player> getPlayers(
-            @RequestParam(required = false) String team,
-            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String team_name,
+            @RequestParam(required = false) String player_name,
             @RequestParam(required = false) String position,
             @RequestParam(required = false) String nation
             ) {
 
-        if (team != null && position !=null) {
-            return playerService.getPlayersByTeamAndPosition(team, position);
+        if (team_name != null && position !=null) {
+            return playerService.getPlayersByTeamAndPosition(team_name, position);
         }
-        else if (team != null) {
-            return  playerService.getPlayersFromTeam(team);
+        else if (team_name != null) {
+            return  playerService.getPlayersFromTeam(team_name);
         }
-        else if (name != null) {
-            return playerService.getPlayersByName(name);
+        else if (player_name != null) {
+            return playerService.getPlayersByName(player_name);
         }
         else if (nation != null) {
             return  playerService.getPlayersByNation(nation);

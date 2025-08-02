@@ -1,14 +1,10 @@
 package com.plpredictor.premier_predictor.player;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="player_stats")
+@Table(name = "player_stats")
 public class Player {
-
     @Id
     @Column(name = "name", unique = true)
     private String name;
@@ -21,12 +17,16 @@ public class Player {
     private Double gls;
     private Double ast;
     private Double pk;
-    private Double crdY;
-    private Double crdR;
+    private Double crdy;
+    private Double crdr;
     private Double xag;
     private String team;
 
-    public Player(String name, String nation, String pos, Integer age, Integer mp, Integer starts, Double min, Double gls, Double ast, Double pk, Double crdY, Double crdR, Double xag, String team) {
+    protected Player() {
+
+    }
+
+    public Player(String name, String nation, String pos, int age, int mp, int starts, double min, double gls, double ast, double pk, double crdy, double crdr, double xag, String team) {
         this.name = name;
         this.nation = nation;
         this.pos = pos;
@@ -37,8 +37,8 @@ public class Player {
         this.gls = gls;
         this.ast = ast;
         this.pk = pk;
-        this.crdY = crdY;
-        this.crdR = crdR;
+        this.crdy = crdy;
+        this.crdr = crdr;
         this.xag = xag;
         this.team = team;
     }
@@ -47,111 +47,131 @@ public class Player {
         return name;
     }
 
-    public String getNation() {
-        return nation;
-    }
-
-    public String getPos() {
-        return pos;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public Integer getMp() {
-        return mp;
-    }
-
-    public Integer getStarts() {
-        return starts;
-    }
-
-    public Double getMin() {
-        return min;
-    }
-
-    public Double getGls() {
-        return gls;
-    }
-
-    public Double getAst() {
-        return ast;
-    }
-
-    public Double getPk() {
-        return pk;
-    }
-
-    public Double getCrdY() {
-        return crdY;
-    }
-
-    public Double getCrdR() {
-        return crdR;
-    }
-
-    public Double getXag() {
-        return xag;
-    }
-
-    public String getTeam() {
-        return team;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNation() {
+        return nation;
     }
 
     public void setNation(String nation) {
         this.nation = nation;
     }
 
+    public String getPos() {
+        return pos;
+    }
+
     public void setPos(String pos) {
         this.pos = pos;
     }
 
-    public void setAge(Integer age) {
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
         this.age = age;
     }
 
-    public void setMp(Integer mp) {
+    public int getMp() {
+        return mp;
+    }
+
+    public void setMp(int mp) {
         this.mp = mp;
     }
 
-    public void setStarts(Integer starts) {
+    public int getStarts() {
+        return starts;
+    }
+
+    public void setStarts(int starts) {
         this.starts = starts;
     }
 
-    public void setMin(Double min) {
+    public double getMin() {
+        return min;
+    }
+
+    public void setMin(double min) {
         this.min = min;
     }
 
-    public void setGls(Double gls) {
+    public double getGls() {
+        return gls;
+    }
+
+    public void setGls(double gls) {
         this.gls = gls;
     }
 
-    public void setAst(Double ast) {
+    public double getAst() {
+        return ast;
+    }
+
+    public void setAst(double ast) {
         this.ast = ast;
     }
 
-    public void setPk(Double pk) {
+    public double getPk() {
+        return pk;
+    }
+
+    public void setPk(double pk) {
         this.pk = pk;
     }
 
-    public void setCrdY(Double crdY) {
-        this.crdY = crdY;
+    public double getCrdy() {
+        return crdy;
     }
 
-    public void setCrdR(Double crdR) {
-        this.crdR = crdR;
+    public void setCrdy(double crdy) {
+        this.crdy = crdy;
     }
 
-    public void setXag(Double xag) {
+    public double getCrdr() {
+        return crdr;
+    }
+
+    public void setCrdr(double crdr) {
+        this.crdr = crdr;
+    }
+
+    public double getXag() {
+        return xag;
+    }
+
+    public void setXag(double xag) {
         this.xag = xag;
+    }
+
+    public String getTeam() {
+        return team;
     }
 
     public void setTeam(String team) {
         this.team = team;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", nation='" + nation + '\'' +
+                ", pos='" + pos + '\'' +
+                ", age=" + age +
+                ", mp=" + mp +
+                ", starts=" + starts +
+                ", min=" + min +
+                ", gls=" + gls +
+                ", ast=" + ast +
+                ", pk=" + pk +
+                ", crdy=" + crdy +
+                ", crdr=" + crdr +
+                ", xag=" + xag +
+                ", team='" + team + '\'' +
+                '}';
     }
 }
