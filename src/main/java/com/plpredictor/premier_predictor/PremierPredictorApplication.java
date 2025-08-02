@@ -28,14 +28,4 @@ public class PremierPredictorApplication {
 		};
 	}
 
-	@Bean
-	CommandLineRunner startupCheck(PlayerRepository playerRepository) {
-		return args -> {
-			System.out.println("[StartupCheck] player_stats count = " + playerRepository.count());
-			playerRepository.findAll().forEach(p ->
-					System.out.println("[StartupCheck] player: " + p.getName())
-			);
-		};
-	}
-
 }

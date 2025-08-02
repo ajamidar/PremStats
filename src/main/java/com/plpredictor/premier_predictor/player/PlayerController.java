@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "api/v1/player")
 public class PlayerController {
-
     private final PlayerService playerService;
 
     @Autowired
@@ -20,52 +19,42 @@ public class PlayerController {
 
     @GetMapping
     public List<Player> getPlayers(
-            @RequestParam(required = false) String team_name,
-            @RequestParam(required = false) String player_name,
+            @RequestParam(required = false) String team,
+            @RequestParam(required = false) String name,
             @RequestParam(required = false) String position,
-            @RequestParam(required = false) String nation
-            ) {
+            @RequestParam(required = false) String nation) {
 
-        if (team_name != null && position !=null) {
-            return playerService.getPlayersByTeamAndPosition(team_name, position);
-        }
-        else if (team_name != null) {
-            return  playerService.getPlayersFromTeam(team_name);
-        }
-        else if (player_name != null) {
-            return playerService.getPlayersByName(player_name);
-        }
-        else if (nation != null) {
-            return  playerService.getPlayersByNation(nation);
-        }
-        else if (position != null) {
-            return playerService.getPlayersByPosition(position);
-        }
-        else {
+        if (team != null && position != null) {
+            return playerService.getPlayersByTeamAndPosition(team, position);
+        } else if (team != null) {
+            return playerService.getPlayersFromTeam(team);
+        } else if (name != null) {
+            return playerService.getPlayersByName(name);
+        } else if (position != null) {
+            return playerService.getPlayersByPos(position);
+        } else if (nation != null) {
+            return playerService.getPlayersByNation(nation);
+        } else {
             return playerService.getPlayers();
         }
     }
-
     @PostMapping
-    public ResponseEntity<Player> addPlayer(@RequestBody Player player) {
+    public ResponseEntity<Player> addPlayer(@RequestBody Player player){
         Player createdPlayer = playerService.addPlayer(player);
         return new ResponseEntity<>(createdPlayer, HttpStatus.CREATED);
     }
-
     @PutMapping
-    public ResponseEntity<Player> updatePlayer(@RequestBody Player player) {
-        Player updatedPlayer = playerService.updatePlayer(player);
-        if (updatedPlayer != null) {
-            return new ResponseEntity<>(updatedPlayer, HttpStatus.OK);
-        }
-        else {
+    public ResponseEntity<Player> updatePlayer(@RequestBody Player updatedPlayer) {
+        Player resultPlayer = playerService.updatePlayer(updatedPlayer);
+        if (resultPlayer != null) {
+            return new ResponseEntity<>(resultPlayer, HttpStatus.OK);
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
     @DeleteMapping("/{playerName}")
     public ResponseEntity<String> deletePlayer(@PathVariable String playerName) {
         playerService.deletePlayer(playerName);
-        return new ResponseEntity<>("Player deleted successfully",HttpStatus.OK);
+        return new ResponseEntity<>("Player deleted successfully", HttpStatus.OK);
     }
 }

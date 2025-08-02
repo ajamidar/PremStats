@@ -20,13 +20,14 @@ public class Player {
     private Double crdy;
     private Double crdr;
     private Double xag;
+    private Double xg;
     private String team;
 
     protected Player() {
 
     }
 
-    public Player(String name, String nation, String pos, int age, int mp, int starts, double min, double gls, double ast, double pk, double crdy, double crdr, double xag, String team) {
+    public Player(String name, String nation, String pos, int age, int mp, int starts, double min, double gls, double ast, double pk, double crdy, double crdr, double xag, double xg, String team) {
         this.name = name;
         this.nation = nation;
         this.pos = pos;
@@ -41,6 +42,7 @@ public class Player {
         this.crdr = crdr;
         this.xag = xag;
         this.team = team;
+        this.xg = xg;
     }
 
     public String getName() {
