@@ -1,5 +1,6 @@
 package com.plpredictor.premier_predictor.player;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -74,6 +75,7 @@ public class PlayerService {
         return null;
     }
 
+    @Transactional
     public void deletePlayer(String playerName) {
         playerRepository.deleteByName(playerName);
     }
