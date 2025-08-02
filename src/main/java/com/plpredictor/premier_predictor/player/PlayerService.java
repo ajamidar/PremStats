@@ -73,4 +73,8 @@ public class PlayerService {
         }
         return null;
     }
+
+    public void deletePlayer(String playerName) {
+        playerRepository.deleteByName(playerName);
+    }
 }
