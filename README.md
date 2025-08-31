@@ -13,7 +13,8 @@ Users can explore in-depth metrics including goals, assists, expected goals (xG)
 ## 📋Table of Contents
 
 - [Key Features](#key-features)  
-- [Tech Stack](#tech-stack)  
+- [Tech Stack](#tech-stack)
+- [Watch the demo]([https://youtu.be/HKyv-CQXnxA])
 
 ---
 
