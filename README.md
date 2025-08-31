@@ -14,7 +14,7 @@ Users can explore in-depth metrics including goals, assists, expected goals (xG)
 
 - [Key Features](#key-features)  
 - [Tech Stack](#tech-stack)
-- [Watch the demo](https://youtu.be/HKyv-CQXnxA)
+- [Guide](#premstats-guide)
 
 ---
 
@@ -28,6 +28,12 @@ Users can explore in-depth metrics including goals, assists, expected goals (xG)
 - Designed for extensibility: add new metrics, sources, or output consumers easily
 
 ---
+
+## 💡PremStats Guide
+- Use Data_Scraping.py python file to scrape player/team data from 'https://fbref.com/en/comps/9/Premier-League-Stats' straight onto a CSV file, using BeautifulSoup and pandas
+- CSV file's data is then moved into the PostgreSQL database
+- Java based Springboot application then accesses the data, which can then me used for further use.
+- For example usage, check out the [Demo Video](https://youtu.be/HKyv-CQXnxA), which shows the entire process from start to end.
 
 ## 🤖Tech Stack
 
